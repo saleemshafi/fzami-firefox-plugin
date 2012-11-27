@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://fzami/skin/fzami.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://fzami/locale/fzami.dtd">
+<overlay id="fzami-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<script type="application/x-javascript" src="chrome://fzami/content/fzami.js"/>
+<script type="application/x-javascript">
+    window.addEventListener("load", fzamiLoad, false);
+    window.addEventListener("unload", fzamiUnload, false);
+</script>
+
+<commandset>
+<command id="fzamirefreshcmd" oncommand="fzamiRefresh(true);" />
+<command id="fzamioptionscmd" oncommand="window.openDialog('chrome://fzami/content/options.xul','fzami-options','chrome');" />
+<command id="fzamiislamicfindercmd" oncommand="openLink('http://www.islamicfinder.org/');" />
+<command id="fzamimonthlyprayercmd" oncommand="openMonthlyPrayerSchedule();" />
+</commandset>
+
+<popupset>
+<menupopup id="fzami-menu">
+	<menuitem label="&fzami.menu.islamicfinder;" command="fzamiislamicfindercmd" />
+	<menuitem label="&fzami.menu.monthlyschedule;" command="fzamimonthlyprayercmd" />
+	<menuseparator />
+	<menuitem label="&fzami.menu.options;" command="fzamioptionscmd" />
+	<menuitem label="&fzami.menu.refresh;" command="fzamirefreshcmd" />
+</menupopup>
+<tooltip id="fzami-tooltip" position="before-start" noautohide="true"><label value="&fzami.name;"/></tooltip>
+</popupset>
+
+<!-- statusbar -->
+<statusbar id="status-bar">
+	<statusbarpanel id="fzami-panel" label="fzami" tooltip="fzami-tooltip" contextmenu="fzami-menu" mousethrough="never">
+		<hbox id="fzami-deck">
+			<box id="fzami-one-prayer-box" class="fzami-box" collapsed="true">
+				<box id="fzami-current-prayer-box" class="fzami-prayer-time">
+				<label id="fzami-current-prayer-label" class="fzami-label" value="??"/>
+				<label id="fzami-current-prayer-time" class="small-margin" value="??"/>
+				</box>
+			</box>
+			<box id="fzami-all-prayers-box" class="fzami-box" collapsed="true">
+				<box id="fzami-fajr-box" class="fzami-prayer-time">
+				<label id="fzami-fajr-label" class="fzami-label" value="&fzami.toolbar.fajr.label;"/>
+				<label id="fzami-fajr-time" class="small-margin" value="??"/>
+				</box>
+				<box id="fzami-zuhr-box" class="fzami-prayer-time">
+				<label id="fzami-zuhr-label" class="fzami-label" value="&fzami.toolbar.zuhr.label;"/>
+				<label id="fzami-zuhr-time" class="small-margin" value="??"/>
+				</box>
+				<box id="fzami-asr-box" class="fzami-prayer-time">
+				<label id="fzami-asr-label" class="fzami-label" value="&fzami.toolbar.asr.label;"/>
+				<label id="fzami-asr-time" class="small-margin" value="??"/>
+				</box>
+				<box id="fzami-maghrib-box" class="fzami-prayer-time">
+				<label id="fzami-maghrib-label" class="fzami-label" value="&fzami.toolbar.maghrib.label;"/>
+				<label id="fzami-maghrib-time" class="small-margin" value="??"/>
+				</box>
+				<box id="fzami-isha-box" class="fzami-prayer-time">
+				<label id="fzami-isha-label" class="fzami-label" value="&fzami.toolbar.isha.label;"/>
+				<label id="fzami-isha-time" class="small-margin" value="??"/>
+				</box>
+			</box>
+			<box id="fzami-text-box" class="fzami-box">
+				<label value="&fzami.name;"/>
+			</box>
+			<box id="fzami-error-box" collapsed="true">
+				<label id="fzami-errormsg" value="&fzami.toolbar.errormsg;" />
+			</box>
+			<progressmeter id="fzami-progressmeter" mode="undetermined" collapsed="true"/>
+		</hbox>
+	</statusbarpanel>
+</statusbar> 
+
+
+</overlay>

@@ -1,0 +1,36 @@
+.fzami-link {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.fzami-label {
+  font-weight: bold;
+}
+
+.fzami-current-prayer-time {
+  color: highlighttext;
+  font-weight: bold;
+}
+
+.fzami-current-prayer-time-ending {
+  color: #FF0000;
+  font-weight: bold;
+}
+
+#fzami-all-prayers-box .fzami-current-prayer-time,
+#fzami-all-prayers-box .fzami-current-prayer-time-ending,
+#fzami-tooltip .fzami-current-prayer-time,
+#fzami-tooltip .fzami-current-prayer-time-ending {
+  background-color: highlight;
+}
+
+#fzami-text-box label {
+  border-bottom: dashed thin;
+}
+
+.fzami-tooltip-title {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 4px;
+}

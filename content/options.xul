@@ -1,0 +1,522 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/global.css" type="text/css"?>
+<?xml-stylesheet href="chrome://fzami/skin/fzami.css" type="text/css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://fzami/locale/fzami.dtd">
+
+<prefwindow id="fzami-options-dialog"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	title="&fzami.pref.title;"
+	ondialogaccept="fzamiAcceptPreferences()"
+	onbeforeaccept="return fzamiValidatePreferences()"
+	buttons="accept,cancel">
+
+
+<script type="application/x-javascript" src="chrome://fzami/content/options.js"/>
+
+<prefpane onpaneload="fzamiPreferencesLoaded();">
+    <!-- Intermediary between GUI and preferences system -->
+    <preferences>
+		<preference id="fzami-general-refresh-pref" name="extensions.fzami.refresh" type="int" />
+		<preference id="fzami-general-position-pref" name="extensions.fzami.position" type="int" />
+		<preference id="fzami-general-display-pref" name="extensions.fzami.displayType" type="int" />
+		<preference id="fzami-general-militaryTime-pref" name="extensions.fzami.militaryTime" type="bool" />
+	
+		<preference id="fzami-general-alert-start-pref" name="extensions.fzami.alert.start" type="bool" />
+		<preference id="fzami-general-alert-start-confirm-pref" name="extensions.fzami.alert.start.confirm" type="bool" />
+		<preference id="fzami-general-alert-start-audio-pref" name="extensions.fzami.alert.start.audio" type="bool" />
+		<preference id="fzami-general-alert-start-audio-file-pref" name="extensions.fzami.alert.start.audio.filename" type="string" />
+		<preference id="fzami-general-alert-end-pref" name="extensions.fzami.alert.end" type="bool" />
+		<preference id="fzami-general-alert-end-confirm-pref" name="extensions.fzami.alert.end.confirm" type="bool" />
+		<preference id="fzami-general-alert-end-buffer-pref" name="extensions.fzami.alert.end.buffer" type="int" />
+	
+		<preference id="fzami-location-type-pref" name="extensions.fzami.location.type" type="int" />
+		<preference id="fzami-location-zipcode-pref" name="extensions.fzami.location.zipcode" type="string" />
+		<preference id="fzami-location-city-pref" name="extensions.fzami.location.city" type="string" />
+		<preference id="fzami-location-state-pref" name="extensions.fzami.location.state" type="string" />
+		<preference id="fzami-location-country-pref" name="extensions.fzami.location.country" type="string" />
+	
+		<preference id="fzami-prayer-method-pref" name="extensions.fzami.prayercal.method" type="int" />
+		<preference id="fzami-prayer-fajrangle-pref" name="extensions.fzami.prayercal.fajrangle" type="int" />
+		<preference id="fzami-prayer-zuhrdelay-pref" name="extensions.fzami.prayercal.zuhrdelay" type="int" />
+		<preference id="fzami-prayer-asrmethod-pref" name="extensions.fzami.prayercal.asrmethod" type="int" />
+		<preference id="fzami-prayer-maghribdelay-pref" name="extensions.fzami.prayercal.maghribdelay" type="int" />
+		<preference id="fzami-prayer-ishaangle-pref" name="extensions.fzami.prayercal.ishaangle" type="int" />
+    </preferences>
+
+<tabbox>
+  <tabs>
+    <tab label="&fzami.pref.tab.general;"/>
+    <tab id="tab-location" label="&fzami.pref.tab.location;"/>
+    <tab label="&fzami.pref.tab.prayercalc;"/>
+  </tabs>
+
+<tabpanels flex="1">
+  <tabpanel>
+    <grid>
+      <rows>
+        <!--row>
+          <label value="&fzami.pref.refresh.label1;" control="fzami-general-refresh"/>
+          <textbox preference="fzami-general-refresh-pref" id="fzami-general-refresh" flex="1" onfocus="this.select()"/>
+          <label value="&fzami.pref.refresh.label2;" />
+        </row-->
+        <row>
+          <label value="&fzami.pref.display.label;" control="fzami-general-display"/>
+          <radiogroup preference="fzami-general-display-pref" id="fzami-general-display" flex="1" orient="vertical">
+              <radio group="display" label="&fzami.pref.display.text.label;" value="2" />
+              <radio group="display" label="&fzami.pref.display.oneprayer.label;" value="0" />
+              <radio group="display" label="&fzami.pref.display.allprayers.label;" value="1" />
+          </radiogroup>
+        </row>
+        <row>
+          <label value="&fzami.pref.militaryTime.label;" control="fzami-general-militaryTime"/>
+          <radiogroup preference="fzami-general-militaryTime-pref" id="fzami-general-militaryTime" flex="1" orient="horizontal">
+              <radio group="timeformat" label="&fzami.pref.general.timeformat12.label;" value="false" />
+              <radio group="timeformat" label="&fzami.pref.general.timeformat24.label;" value="true" />
+          </radiogroup>
+        </row>
+        <!--row>
+          <label value="&fzami.pref.position.label;" control="fzami-general-position"/>
+          <textbox preference="fzami-general-position-pref" id="fzami-general-position" flex="1" onfocus="this.select()"/>
+        </row-->
+        <row>
+          <label value="&fzami.pref.alerts.label;" />
+          <vbox>
+            <hbox><checkbox preference="fzami-general-alert-start-pref" id="fzami-general-alert-start" label="&fzami.pref.alerts.start.label;" oncommand="updateAlerts()"/></hbox>
+            <hbox>
+            	<vbox><label value="      " /></vbox>
+            	<vbox>
+		            <hbox><checkbox preference="fzami-general-alert-start-confirm-pref" id="fzami-general-alert-start-confirm" label="&fzami.pref.alerts.start.confirm.label;"/></hbox>
+		            <hbox><checkbox preference="fzami-general-alert-start-audio-pref" id="fzami-general-alert-start-audio" label="&fzami.pref.alerts.start.audio.label;" oncommand="updateAlerts()"/></hbox>
+		            <hbox>
+		            	<vbox><label value="      " /></vbox>
+		            	<vbox>
+		            		<hbox><textbox preference="fzami-general-alert-start-audio-file-pref" id="fzami-general-alert-start-audio-file" size="50" /><button label="Browse.." id="fzami-general-alert-start-audio-file-button" oncommand="selectAzanFile()" /></hbox>
+			            </vbox>
+		            </hbox>
+	            </vbox>
+            </hbox>
+            <hbox><checkbox preference="fzami-general-alert-end-pref" id="fzami-general-alert-end" label="&fzami.pref.alerts.end.label;" oncommand="updateAlerts()"/><textbox preference="fzami-general-alert-end-buffer-pref" id="fzami-general-alert-end-buffer" size="1" onkeypress="applyMask(event, NUMERIC_MASK)"/><description value="&fzami.pref.alerts.end.buffer.label;"/></hbox>
+            <hbox>
+            	<vbox><label value="      " /></vbox>
+            	<vbox>
+		            <hbox><checkbox preference="fzami-general-alert-end-confirm-pref" id="fzami-general-alert-end-confirm" label="&fzami.pref.alerts.end.confirm.label;"/></hbox>
+		        </vbox>
+		    </hbox>
+          </vbox>
+        </row>
+      </rows>
+    </grid>
+  </tabpanel>
+
+  <tabpanel>
+    <radiogroup preference="fzami-location-type-pref" id="fzami-location-type" flex="1" orient="vertical">
+      <groupbox>
+        <caption>
+          <radio group="location-type" label="&fzami.pref.location.tab.us;" value="0" />
+        </caption>
+    <grid>
+      <rows>
+        <row>
+          <label value="&fzami.pref.location.zipcode.label;" control="fzami-location-zipcode"/>
+          <textbox preference="fzami-location-zipcode-pref" id="fzami-location-zipcode" flex="1" onfocus="this.select()" onkeypress="applyMask(event, ZIPCODE_MASK)"/>
+        </row>
+      </rows>
+    </grid>
+      </groupbox>
+      <groupbox>
+        <caption>
+          <radio group="location-type" label="&fzami.pref.location.tab.world;" value="1" />
+        </caption>
+    <grid>
+      <columns>
+        <column/>
+        <column flex="3"/>
+      </columns>
+      <rows>
+        <row>
+          <label value="&fzami.pref.location.country.label;" control="fzami-location-country"/>
+          <menulist preference="fzami-location-country-pref" id="fzami-location-country">
+<menupopup>
+<menuitem value="" label=""/>
+<menuitem value="afghanistan" label="&fzami.pref.location.country.afghanistan;"/>
+<menuitem value="albania" label="&fzami.pref.location.country.albania;"/>
+<menuitem value="algeria" label="&fzami.pref.location.country.algeria;"/>
+<menuitem value="andorra" label="&fzami.pref.location.country.andorra;"/>
+<menuitem value="angola" label="&fzami.pref.location.country.angola;"/>
+
+<menuitem value="anguilla" label="&fzami.pref.location.country.anguilla;"/>
+<menuitem value="antarctica" label="&fzami.pref.location.country.antarctica;"/>
+<menuitem value="antigua_barbuda" label="&fzami.pref.location.country.antigua_barbuda;"/>
+<menuitem value="argentina" label="&fzami.pref.location.country.argentina;"/>
+<menuitem value="armenia" label="&fzami.pref.location.country.armenia;"/>
+<menuitem value="aruba" label="&fzami.pref.location.country.aruba;"/>
+<menuitem value="ashmore_cartier_islands" label="&fzami.pref.location.country.ashmore_cartier_islands;"/>
+<menuitem value="australia" label="&fzami.pref.location.country.australia;"/>
+<menuitem value="austria" label="&fzami.pref.location.country.austria;"/>
+
+<menuitem value="azerbaijan" label="&fzami.pref.location.country.azerbaijan;"/>
+<menuitem value="bahamas" label="&fzami.pref.location.country.bahamas;"/>
+<menuitem value="bahrain" label="&fzami.pref.location.country.bahrain;"/>
+<menuitem value="bangladesh" label="&fzami.pref.location.country.bangladesh;"/>
+<menuitem value="barbados" label="&fzami.pref.location.country.barbados;"/>
+<menuitem value="bassas_de_india" label="&fzami.pref.location.country.bassas_de_india;"/>
+<menuitem value="belarus" label="&fzami.pref.location.country.belarus;"/>
+<menuitem value="belgium" label="&fzami.pref.location.country.belgium;"/>
+<menuitem value="belize" label="&fzami.pref.location.country.belize;"/>
+
+<menuitem value="benin" label="&fzami.pref.location.country.benin;"/>
+<menuitem value="bermuda" label="&fzami.pref.location.country.bermuda;"/>
+<menuitem value="bhutan" label="&fzami.pref.location.country.bhutan;"/>
+<menuitem value="bolivia" label="&fzami.pref.location.country.bolivia;"/>
+<menuitem value="bosnia_herzegovina" label="&fzami.pref.location.country.bosnia_herzegovina;"/>
+<menuitem value="botswana" label="&fzami.pref.location.country.botswana;"/>
+<menuitem value="bouvet_island" label="&fzami.pref.location.country.bouvet_island;"/>
+<menuitem value="brazil" label="&fzami.pref.location.country.brazil;"/>
+<menuitem value="british_indian_ocean_territory" label="&fzami.pref.location.country.british_indian_ocean_territory;"/>
+
+<menuitem value="british_virgin_islands" label="&fzami.pref.location.country.british_virgin_islands;"/>
+<menuitem value="brunei_darussalam" label="&fzami.pref.location.country.brunei_darussalam;"/>
+<menuitem value="bulgaria" label="&fzami.pref.location.country.bulgaria;"/>
+<menuitem value="burkina_faso" label="&fzami.pref.location.country.burkina_faso;"/>
+<menuitem value="burma" label="&fzami.pref.location.country.burma;"/>
+<menuitem value="burundi" label="&fzami.pref.location.country.burundi;"/>
+<menuitem value="cambodia" label="&fzami.pref.location.country.cambodia;"/>
+<menuitem value="cameroon" label="&fzami.pref.location.country.cameroon;"/>
+<menuitem value="canada" label="&fzami.pref.location.country.canada;"/>
+
+<menuitem value="cape_verde" label="&fzami.pref.location.country.cape_verde;"/>
+<menuitem value="cayman_islands" label="&fzami.pref.location.country.cayman_islands;"/>
+<menuitem value="central_african_republic" label="&fzami.pref.location.country.central_african_republic;"/>
+<menuitem value="chad" label="&fzami.pref.location.country.chad;"/>
+<menuitem value="chile" label="&fzami.pref.location.country.chile;"/>
+<menuitem value="china" label="&fzami.pref.location.country.china;"/>
+<menuitem value="christmas_island" label="&fzami.pref.location.country.christmas_island;"/>
+<menuitem value="clipperton_island" label="&fzami.pref.location.country.clipperton_island;"/>
+<menuitem value="cocos_islands" label="&fzami.pref.location.country.cocos_islands;"/>
+
+<menuitem value="colombia" label="&fzami.pref.location.country.colombia;"/>
+<menuitem value="comoros" label="&fzami.pref.location.country.comoros;"/>
+<menuitem value="congo" label="&fzami.pref.location.country.congo;"/>
+<menuitem value="congo_democratic_republic" label="&fzami.pref.location.country.congo_democratic_republic;"/>
+<menuitem value="cook_islands" label="&fzami.pref.location.country.cook_islands;"/>
+<menuitem value="coral_sea_islands" label="&fzami.pref.location.country.coral_sea_islands;"/>
+<menuitem value="costa_rica" label="&fzami.pref.location.country.costa_rica;"/>
+<menuitem value="cote_dlvoire" label="&fzami.pref.location.country.cote_dlvoire;"/>
+<menuitem value="croatia" label="&fzami.pref.location.country.croatia;"/>
+
+<menuitem value="cuba" label="&fzami.pref.location.country.cuba;"/>
+<menuitem value="cyprus" label="&fzami.pref.location.country.cyprus;"/>
+<menuitem value="czech_republic" label="&fzami.pref.location.country.czech_republic;"/>
+<menuitem value="denmark" label="&fzami.pref.location.country.denmark;"/>
+<menuitem value="djibouti" label="&fzami.pref.location.country.djibouti;"/>
+<menuitem value="dominica" label="&fzami.pref.location.country.dominica;"/>
+<menuitem value="dominican_republic" label="&fzami.pref.location.country.dominican_republic;"/>
+<menuitem value="east_timor" label="&fzami.pref.location.country.east_timor;"/>
+<menuitem value="ecuador" label="&fzami.pref.location.country.ecuador;"/>
+
+<menuitem value="egypt" label="&fzami.pref.location.country.egypt;"/>
+<menuitem value="el_salvador" label="&fzami.pref.location.country.el_salvador;"/>
+<menuitem value="equatorial_guinea" label="&fzami.pref.location.country.equatorial_guinea;"/>
+<menuitem value="eritrea" label="&fzami.pref.location.country.eritrea;"/>
+<menuitem value="estonia" label="&fzami.pref.location.country.estonia;"/>
+<menuitem value="ethiopia" label="&fzami.pref.location.country.ethiopia;"/>
+<menuitem value="europa_island" label="&fzami.pref.location.country.europa_island;"/>
+<menuitem value="falkland_islands_malvinas" label="&fzami.pref.location.country.falkland_islands_malvinas;"/>
+<menuitem value="faroe_islands" label="&fzami.pref.location.country.faroe_islands;"/>
+
+<menuitem value="fiji" label="&fzami.pref.location.country.fiji;"/>
+<menuitem value="finland" label="&fzami.pref.location.country.finland;"/>
+<menuitem value="france" label="&fzami.pref.location.country.france;"/>
+<menuitem value="french_guiana" label="&fzami.pref.location.country.french_guiana;"/>
+<menuitem value="french_polynesia" label="&fzami.pref.location.country.french_polynesia;"/>
+<menuitem value="french_southern_antarctic_lands" label="&fzami.pref.location.country.french_southern_antarctic_lands;"/>
+<menuitem value="gabon" label="&fzami.pref.location.country.gabon;"/>
+<menuitem value="gambia" label="&fzami.pref.location.country.gambia;"/>
+<menuitem value="georgia" label="&fzami.pref.location.country.georgia;"/>
+
+<menuitem value="germany" label="&fzami.pref.location.country.germany;"/>
+<menuitem value="ghana" label="&fzami.pref.location.country.ghana;"/>
+<menuitem value="gibraltar" label="&fzami.pref.location.country.gibraltar;"/>
+<menuitem value="glorioso_islands" label="&fzami.pref.location.country.glorioso_islands;"/>
+<menuitem value="greece" label="&fzami.pref.location.country.greece;"/>
+<menuitem value="greenland" label="&fzami.pref.location.country.greenland;"/>
+<menuitem value="grenada" label="&fzami.pref.location.country.grenada;"/>
+<menuitem value="guadeloupe" label="&fzami.pref.location.country.guadeloupe;"/>
+<menuitem value="guatemala" label="&fzami.pref.location.country.guatemala;"/>
+
+<menuitem value="guernsey" label="&fzami.pref.location.country.guernsey;"/>
+<menuitem value="guinea" label="&fzami.pref.location.country.guinea;"/>
+<menuitem value="guinea_bissau" label="&fzami.pref.location.country.guinea_bissau;"/>
+<menuitem value="guyana" label="&fzami.pref.location.country.guyana;"/>
+<menuitem value="guam" label="&fzami.pref.location.country.guam;"/>
+<menuitem value="haiti" label="&fzami.pref.location.country.haiti;"/>
+<menuitem value="heard_island_mcdonald_islands" label="&fzami.pref.location.country.heard_island_mcdonald_islands;"/>
+<menuitem value="honduras" label="&fzami.pref.location.country.honduras;"/>
+<menuitem value="hong_kong" label="&fzami.pref.location.country.hong_kong;"/>
+
+<menuitem value="hungary" label="&fzami.pref.location.country.hungary;"/>
+<menuitem value="iceland" label="&fzami.pref.location.country.iceland;"/>
+<menuitem value="india" label="&fzami.pref.location.country.india;"/>
+<menuitem value="indonesia" label="&fzami.pref.location.country.indonesia;"/>
+<menuitem value="iran" label="&fzami.pref.location.country.iran;"/>
+<menuitem value="iraq" label="&fzami.pref.location.country.iraq;"/>
+<menuitem value="ireland" label="&fzami.pref.location.country.ireland;"/>
+<menuitem value="isle_of_man" label="&fzami.pref.location.country.isle_of_man;"/>
+<menuitem value="italy" label="&fzami.pref.location.country.italy;"/>
+
+<menuitem value="jamaica" label="&fzami.pref.location.country.jamaica;"/>
+<menuitem value="jan_mayen" label="&fzami.pref.location.country.jan_mayen;"/>
+<menuitem value="japan" label="&fzami.pref.location.country.japan;"/>
+<menuitem value="jersey" label="&fzami.pref.location.country.jersey;"/>
+<menuitem value="jordan" label="&fzami.pref.location.country.jordan;"/>
+<menuitem value="juan_de_nova_island" label="&fzami.pref.location.country.juan_de_nova_island;"/>
+<menuitem value="kazakstan" label="&fzami.pref.location.country.kazakstan;"/>
+<menuitem value="kenya" label="&fzami.pref.location.country.kenya;"/>
+<menuitem value="kiribati" label="&fzami.pref.location.country.kiribati;"/>
+
+<menuitem value="kuwait" label="&fzami.pref.location.country.kuwait;"/>
+<menuitem value="kyrgyzstan" label="&fzami.pref.location.country.kyrgyzstan;"/>
+<menuitem value="lao_peoples_democratic_republic" label="&fzami.pref.location.country.lao_peoples_democratic_republic;"/>
+<menuitem value="latvia" label="&fzami.pref.location.country.latvia;"/>
+<menuitem value="lebanon" label="&fzami.pref.location.country.lebanon;"/>
+<menuitem value="lesotho" label="&fzami.pref.location.country.lesotho;"/>
+<menuitem value="liberia" label="&fzami.pref.location.country.liberia;"/>
+<menuitem value="libya" label="&fzami.pref.location.country.libya;"/>
+<menuitem value="liechtenstein" label="&fzami.pref.location.country.liechtenstein;"/>
+
+<menuitem value="lithuania" label="&fzami.pref.location.country.lithuania;"/>
+<menuitem value="luxembourg" label="&fzami.pref.location.country.luxembourg;"/>
+<menuitem value="macau" label="&fzami.pref.location.country.macau;"/>
+<menuitem value="macedonia" label="&fzami.pref.location.country.macedonia;"/>
+<menuitem value="madagascar" label="&fzami.pref.location.country.madagascar;"/>
+<menuitem value="malawi" label="&fzami.pref.location.country.malawi;"/>
+<menuitem value="malaysia" label="&fzami.pref.location.country.malaysia;"/>
+<menuitem value="maldives" label="&fzami.pref.location.country.maldives;"/>
+<menuitem value="mali" label="&fzami.pref.location.country.mali;"/>
+
+<menuitem value="malta" label="&fzami.pref.location.country.malta;"/>
+<menuitem value="marshall_islands" label="&fzami.pref.location.country.marshall_islands;"/>
+<menuitem value="martinique" label="&fzami.pref.location.country.martinique;"/>
+<menuitem value="mauritania" label="&fzami.pref.location.country.mauritania;"/>
+<menuitem value="mauritius" label="&fzami.pref.location.country.mauritius;"/>
+<menuitem value="mayotte" label="&fzami.pref.location.country.mayotte;"/>
+<menuitem value="mexico" label="&fzami.pref.location.country.mexico;"/>
+<menuitem value="micronesia" label="&fzami.pref.location.country.micronesia;"/>
+<menuitem value="moldova" label="&fzami.pref.location.country.moldova;"/>
+
+<menuitem value="monaco" label="&fzami.pref.location.country.monaco;"/>
+<menuitem value="mongolia" label="&fzami.pref.location.country.mongolia;"/>
+<menuitem value="montserrat" label="&fzami.pref.location.country.montserrat;"/>
+<menuitem value="morocco" label="&fzami.pref.location.country.morocco;"/>
+<menuitem value="mozambique" label="&fzami.pref.location.country.mozambique;"/>
+<menuitem value="namibia" label="&fzami.pref.location.country.namibia;"/>
+<menuitem value="nauru" label="&fzami.pref.location.country.nauru;"/>
+<menuitem value="nepal" label="&fzami.pref.location.country.nepal;"/>
+<menuitem value="netherlands" label="&fzami.pref.location.country.netherlands;"/>
+
+<menuitem value="netherlands_antilles" label="&fzami.pref.location.country.netherlands_antilles;"/>
+<menuitem value="new_caledonia" label="&fzami.pref.location.country.new_caledonia;"/>
+<menuitem value="new_zealand" label="&fzami.pref.location.country.new_zealand;"/>
+<menuitem value="nicaragua" label="&fzami.pref.location.country.nicaragua;"/>
+<menuitem value="niger" label="&fzami.pref.location.country.niger;"/>
+<menuitem value="nigeria" label="&fzami.pref.location.country.nigeria;"/>
+<menuitem value="niue" label="&fzami.pref.location.country.niue;"/>
+<menuitem value="no_mans_land" label="&fzami.pref.location.country.no_mans_land;"/>
+<menuitem value="norfolk_island" label="&fzami.pref.location.country.norfolk_island;"/>
+
+<menuitem value="north_korea" label="&fzami.pref.location.country.north_korea;"/>
+<menuitem value="norway" label="&fzami.pref.location.country.norway;"/>
+<menuitem value="oceans" label="&fzami.pref.location.country.oceans;"/>
+<menuitem value="oman" label="&fzami.pref.location.country.oman;"/>
+<menuitem value="pakistan" label="&fzami.pref.location.country.pakistan;"/>
+<menuitem value="palau" label="&fzami.pref.location.country.palau;"/>
+<menuitem value="palestine" label="&fzami.pref.location.country.palestine;"/>
+<menuitem value="panama" label="&fzami.pref.location.country.panama;"/>
+<menuitem value="papua_new_guinea" label="&fzami.pref.location.country.papua_new_guinea;"/>
+
+<menuitem value="paracel_islands" label="&fzami.pref.location.country.paracel_islands;"/>
+<menuitem value="paraguay" label="&fzami.pref.location.country.paraguay;"/>
+<menuitem value="peru" label="&fzami.pref.location.country.peru;"/>
+<menuitem value="philippines" label="&fzami.pref.location.country.philippines;"/>
+<menuitem value="pitcairn_islands" label="&fzami.pref.location.country.pitcairn_islands;"/>
+<menuitem value="poland" label="&fzami.pref.location.country.poland;"/>
+<menuitem value="portugal" label="&fzami.pref.location.country.portugal;"/>
+<menuitem value="puerto_rico" label="&fzami.pref.location.country.puerto_rico;"/>
+<menuitem value="qatar" label="&fzami.pref.location.country.qatar;"/>
+
+<menuitem value="reunion" label="&fzami.pref.location.country.reunion;"/>
+<menuitem value="romania" label="&fzami.pref.location.country.romania;"/>
+<menuitem value="russia" label="&fzami.pref.location.country.russia;"/>
+<menuitem value="rwanda" label="&fzami.pref.location.country.rwanda;"/>
+<menuitem value="saint_helena" label="&fzami.pref.location.country.saint_helena;"/>
+<menuitem value="saint_kitts_nevis" label="&fzami.pref.location.country.saint_kitts_nevis;"/>
+<menuitem value="saint_lucia" label="&fzami.pref.location.country.saint_lucia;"/>
+<menuitem value="saint_pierre_miquelon" label="&fzami.pref.location.country.saint_pierre_miquelon;"/>
+<menuitem value="saint_vincent_grenadines" label="&fzami.pref.location.country.saint_vincent_grenadines;"/>
+
+<menuitem value="samoa" label="&fzami.pref.location.country.samoa;"/>
+<menuitem value="san_marino" label="&fzami.pref.location.country.san_marino;"/>
+<menuitem value="sao_tome_and_principe" label="&fzami.pref.location.country.sao_tome_and_principe;"/>
+<menuitem value="saudi_arabia" label="&fzami.pref.location.country.saudi_arabia;"/>
+<menuitem value="senegal" label="&fzami.pref.location.country.senegal;"/>
+<menuitem value="seychelles" label="&fzami.pref.location.country.seychelles;"/>
+<menuitem value="sierra_leone" label="&fzami.pref.location.country.sierra_leone;"/>
+<menuitem value="singapore" label="&fzami.pref.location.country.singapore;"/>
+<menuitem value="slovakia" label="&fzami.pref.location.country.slovakia;"/>
+
+<menuitem value="slovenia" label="&fzami.pref.location.country.slovenia;"/>
+<menuitem value="solomon_islands" label="&fzami.pref.location.country.solomon_islands;"/>
+<menuitem value="somalia" label="&fzami.pref.location.country.somalia;"/>
+<menuitem value="south_africa" label="&fzami.pref.location.country.south_africa;"/>
+<menuitem value="south_georgia_the_south_sandwitch_islands" label="&fzami.pref.location.country.south_georgia_the_south_sandwitch_islands;"/>
+<menuitem value="south_korea" label="&fzami.pref.location.country.south_korea;"/>
+<menuitem value="spain" label="&fzami.pref.location.country.spain;"/>
+<menuitem value="spratly_islands" label="&fzami.pref.location.country.spratly_islands;"/>
+<menuitem value="sri_lanka" label="&fzami.pref.location.country.sri_lanka;"/>
+
+<menuitem value="sudan" label="&fzami.pref.location.country.sudan;"/>
+<menuitem value="suriname" label="&fzami.pref.location.country.suriname;"/>
+<menuitem value="svalbard_and_jan_mayen" label="&fzami.pref.location.country.svalbard_and_jan_mayen;"/>
+<menuitem value="swaziland" label="&fzami.pref.location.country.swaziland;"/>
+<menuitem value="sweden" label="&fzami.pref.location.country.sweden;"/>
+<menuitem value="switzerland" label="&fzami.pref.location.country.switzerland;"/>
+<menuitem value="syria" label="&fzami.pref.location.country.syria;"/>
+<menuitem value="taiwan" label="&fzami.pref.location.country.taiwan;"/>
+
+<menuitem value="tajikistan" label="&fzami.pref.location.country.tajikistan;"/>
+<menuitem value="tanzania" label="&fzami.pref.location.country.tanzania;"/>
+<menuitem value="thailand" label="&fzami.pref.location.country.thailand;"/>
+<menuitem value="togo" label="&fzami.pref.location.country.togo;"/>
+<menuitem value="tokelau" label="&fzami.pref.location.country.tokelau;"/>
+<menuitem value="tonga" label="&fzami.pref.location.country.tonga;"/>
+<menuitem value="trinidad_tobago" label="&fzami.pref.location.country.trinidad_tobago;"/>
+<menuitem value="tromelin_island" label="&fzami.pref.location.country.tromelin_island;"/>
+<menuitem value="tunisia" label="&fzami.pref.location.country.tunisia;"/>
+
+<menuitem value="turkey" label="&fzami.pref.location.country.turkey;"/>
+<menuitem value="turkmenistan" label="&fzami.pref.location.country.turkmenistan;"/>
+<menuitem value="turks_caicos_islands" label="&fzami.pref.location.country.turks_caicos_islands;"/>
+<menuitem value="tuvalu" label="&fzami.pref.location.country.tuvalu;"/>
+<menuitem value="uganda" label="&fzami.pref.location.country.uganda;"/>
+<menuitem value="ukraine" label="&fzami.pref.location.country.ukraine;"/>
+<menuitem value="under_sea_features" label="&fzami.pref.location.country.under_sea_features;"/>
+<menuitem value="united_arab_emirates" label="&fzami.pref.location.country.united_arab_emirates;"/>
+<menuitem value="united_kingdom" label="&fzami.pref.location.country.united_kingdom;"/>
+<menuitem value="USA" label="&fzami.pref.location.country.USA;"/>
+
+<menuitem value="uruguay" label="&fzami.pref.location.country.uruguay;"/>
+<menuitem value="uzbekistan" label="&fzami.pref.location.country.uzbekistan;"/>
+<menuitem value="vanuatu" label="&fzami.pref.location.country.vanuatu;"/>
+<menuitem value="vatican_city" label="&fzami.pref.location.country.vatican_city;"/>
+<menuitem value="venezuela" label="&fzami.pref.location.country.venezuela;"/>
+<menuitem value="viet_nam" label="&fzami.pref.location.country.viet_nam;"/>
+<menuitem value="wallis_futuna" label="&fzami.pref.location.country.wallis_futuna;"/>
+<menuitem value="yemen" label="&fzami.pref.location.country.yemen;"/>
+
+<menuitem value="yugoslavia" label="&fzami.pref.location.country.yugoslavia;"/>
+<menuitem value="zambia" label="&fzami.pref.location.country.zambia;"/>
+<menuitem value="zimbabwe" label="&fzami.pref.location.country.zimbabwe;"/>
+</menupopup>
+          </menulist>
+        </row>
+        <row>
+          <label value="&fzami.pref.location.city.search.label;" control="fzami-location-city-search" />
+          <textbox id="fzami-location-city-search" flex="1" oninput="reloadCities()" onfocus="this.select()"/>
+        </row>
+        <row>
+          <label value="&fzami.pref.location.citystate.label;" control="fzami-location-citystate"/>
+          <menulist id="fzami-location-citystate" flex="1">
+            <menupopup>
+            </menupopup>
+          </menulist>
+        </row>
+      </rows>
+    </grid>
+      </groupbox>
+    </radiogroup>
+  </tabpanel>
+
+  <tabpanel>
+<grid>
+<rows>
+<row>
+    <grid>
+      <columns>
+        <column/>
+        <column flex="3"/>
+      </columns>
+      <rows>
+        <row>
+          <label value="&fzami.pref.prayer.asrmethod.label;" control="fzami-prayer-asrmethod"/>
+          <radiogroup preference="fzami-prayer-asrmethod-pref" id="fzami-prayer-asrmethod" flex="1" orient="horizontal">
+              <radio group="asrmethod" label="&fzami.pref.prayer.asrmethod.hanafi.label;" value="2" />
+              <radio group="asrmethod" label="&fzami.pref.prayer.asrmethod.standard.label;" value="1" />
+          </radiogroup>
+        </row>
+      </rows>
+    </grid>
+</row>
+<row>
+<tabbox flex="1">
+  <tabs id="tabs">
+    <tab id="fzami-prayer-methods-tab" label="&fzami.pref.prayer.tab.methods;" />
+    <tab id="fzami-prayer-custom-tab" label="&fzami.pref.prayer.tab.custom;" />
+  </tabs>
+<tabpanels flex="1">
+  <tabpanel id="fzami-prayer-methods-tabpanel">
+    <grid>
+      <rows>
+        <row>
+          <radiogroup preference="fzami-prayer-method-pref" id="fzami-prayer-method" flex="1" orient="vertical">
+              <radio group="prayermethod" label="&fzami.pref.prayer.method.mwl.label;" value="1" />
+              <radio group="prayermethod" label="&fzami.pref.prayer.method.egas.label;" value="2" />
+              <radio group="prayermethod" label="&fzami.pref.prayer.method.uis.label;" value="3" />
+              <radio group="prayermethod" label="&fzami.pref.prayer.method.uq.label;" value="4" />
+              <radio group="prayermethod" label="&fzami.pref.prayer.method.na.label;" value="5" />
+              <radio group="prayermethod" label="&fzami.pref.prayer.method.custom.label;" value="6" />
+          </radiogroup>
+        </row>
+      </rows>
+    </grid>
+  </tabpanel>
+  <tabpanel id="fzami-prayer-custom-tabpanel">
+    <grid>
+      <columns>
+        <column/>
+        <column flex="3"/>
+      </columns>
+      <rows>
+        <row>
+          <label value="&fzami.pref.prayer.fajrangle.label;" control="fzami-prayer-fajrangle"/>
+          <textbox preference="fzami-prayer-fajrangle-pref" id="fzami-prayer-fajrangle" flex="1" onfocus="this.select()" onkeypress="applyMask(event, DECIMAL_MASK)"/>
+        </row>
+        <row>
+          <label value="&fzami.pref.prayer.zuhrdelay.label;" control="fzami-prayer-zuhrdelay"/>
+          <textbox preference="fzami-prayer-zuhrdelay-pref" id="fzami-prayer-zuhrdelay" flex="1" onfocus="this.select()" onkeypress="applyMask(event, NUMERIC_MASK)"/>
+        </row>
+        <row>
+          <label value="&fzami.pref.prayer.maghribdelay.label;" control="fzami-prayer-maghribdelay"/>
+          <textbox preference="fzami-prayer-maghribdelay-pref" id="fzami-prayer-maghribdelay" flex="1" onfocus="this.select()" onkeypress="applyMask(event, NUMERIC_MASK)"/>
+        </row>
+        <row>
+          <label value="&fzami.pref.prayer.ishaangle.label;" control="fzami-prayer-ishaangle"/>
+          <textbox preference="fzami-prayer-ishaangle-pref" id="fzami-prayer-ishaangle" flex="1" onfocus="this.select()" onkeypress="applyMask(event, DECIMAL_MASK)"/>
+        </row>
+      </rows>
+    </grid>
+  </tabpanel>
+</tabpanels>
+</tabbox>
+</row>
+</rows>
+</grid>
+  </tabpanel>
+</tabpanels>
+</tabbox>
+<hbox>
+<label value="&fzami.pref.permission.disclosure;"/><label class="fzami-link" onclick="window.open('&fzami.pref.source.url;');" value="&fzami.pref.source.name;" />
+</hbox>
+</prefpane>
+</prefwindow > 

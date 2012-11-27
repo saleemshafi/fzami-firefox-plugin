@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$bgnpE1"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="1.5"
+                   em:maxVersion="17.*" />
+  <RDF:Description RDF:about="urn:mozilla:install-manifest"
+                   em:id="{1a26421d-d2b2-4f47-b873-e97e6b1ba040}"
+                   em:name="fzami"
+                   em:version="1.2.2"
+                   em:creator="Saleem Shafi"
+                   em:description="Adds Muslim prayer times for your area in the status bar."
+                   em:homepageURL="http://fzami.com/"
+                   em:iconURL="chrome://fzami/skin/fzami.gif"
+                   em:optionsURL="chrome://fzami/content/options.xul">
+    <em:targetApplication RDF:resource="rdf:#$bgnpE1"/>
+  </RDF:Description>
+</RDF:RDF>

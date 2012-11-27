@@ -1,0 +1,17 @@
+content	fzami	content/
+overlay	chrome://browser/content/browser.xul	chrome://fzami/content/fzami.xul
+
+locale	fzami	en-US	locale/en-US/
+
+skin	fzami	classic/1.0	skin/
+style	chrome://global/content/customizeToolbar.xul	chrome://fzami/skin/fzami.css
+
+component {9939B49E-64A3-11DB-8373-B622A1EF5492} components/nsFzami.js
+contract @mozdev.org/fzami/component;1 {9939B49E-64A3-11DB-8373-B622A1EF5492}
+category profile-after-change @mozdev.org/fzami/component;1 @mozdev.org/fzami/component;1
+
+component {9F64D46C-64A5-11DB-8373-B622A1EF5492} components/nsPrayerTimes.js
+contract @mozdev.org/fzami/ptservice;1 {9F64D46C-64A5-11DB-8373-B622A1EF5492}
+
+component {91873072-65EF-11DB-8373-B622A1EF5492} components/nsTimeObject.js
+contract @mozdev.org/fzami/time;1 {91873072-65EF-11DB-8373-B622A1EF5492}

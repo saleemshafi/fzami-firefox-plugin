@@ -1,0 +1,356 @@
+<!-- fzami -->
+<!ENTITY fzami.name      "fzami">
+
+<!ENTITY fzami.menu.refresh             "Refresh prayer times">
+<!ENTITY fzami.menu.options             "Options..">
+<!ENTITY fzami.menu.islamicfinder	"Islamicfinder.org">
+<!ENTITY fzami.menu.monthlyschedule	"Monthly Prayer Schedule">
+
+<!ENTITY fzami.toolbar.fajr.label       "f:">
+<!ENTITY fzami.toolbar.zuhr.label       "z:">
+<!ENTITY fzami.toolbar.asr.label        "a:">
+<!ENTITY fzami.toolbar.maghrib.label    "m:">
+<!ENTITY fzami.toolbar.isha.label       "i:">
+
+<!ENTITY fzami.toolbar.errormsg         "Error loading fzami">
+
+
+<!ENTITY fzami.pref.title         "fzami Options">
+
+<!ENTITY fzami.pref.tab.general         "General">
+<!ENTITY fzami.pref.tab.location        "Location">
+<!ENTITY fzami.pref.tab.prayercalc      "Prayer Calculations">
+
+<!ENTITY fzami.pref.refresh.label1      "Refresh the prayer times every">
+<!ENTITY fzami.pref.refresh.label2      "minutes.">
+<!ENTITY fzami.pref.position.label	"Status bar position (-1 = last)">
+<!ENTITY fzami.pref.display.label	"Display:">
+<!ENTITY fzami.pref.display.text.label	"Just the word 'fzami'">
+<!ENTITY fzami.pref.display.oneprayer.label	"Only current prayer">
+<!ENTITY fzami.pref.display.allprayers.label	"All five prayers">
+<!ENTITY fzami.pref.alerts.label	"Alerts:">
+<!ENTITY fzami.pref.alerts.start.label	"Show alert at the beginning of the prayer time.">
+<!ENTITY fzami.pref.alerts.start.confirm.label	"Require confirmation before removing alert at beginning of prayer time.">
+<!ENTITY fzami.pref.alerts.start.audio.label	"Play audio file at the beginning of the prayer time.">
+<!ENTITY fzami.pref.alerts.end.label	"Show alert">
+<!ENTITY fzami.pref.alerts.end.buffer.label	"minutes before the next prayer time.">
+<!ENTITY fzami.pref.alerts.end.confirm.label	"Require confirmation before removing alert at end of prayer time.">
+
+<!ENTITY fzami.pref.militaryTime.label      "Time Format:">
+<!ENTITY fzami.pref.general.timeformat12.label      "12 hour">
+<!ENTITY fzami.pref.general.timeformat24.label      "24 hour">
+
+<!ENTITY fzami.pref.location.tab.us	"US/Canada">
+<!ENTITY fzami.pref.location.tab.world  "Other Countries">
+
+<!ENTITY fzami.pref.location.zipcode.label  "Zipcode">
+<!ENTITY fzami.pref.location.city.search.label  "City Search">
+<!ENTITY fzami.pref.location.citystate.label  "City/State">
+
+<!ENTITY fzami.pref.location.city.label  "City">
+<!ENTITY fzami.pref.location.state.label  "State">
+<!ENTITY fzami.pref.location.country.label  "Country">
+
+<!ENTITY fzami.pref.prayer.asrmethod.label  "Asr method:">
+<!ENTITY fzami.pref.prayer.asrmethod.hanafi.label  "Hanafi">
+<!ENTITY fzami.pref.prayer.asrmethod.standard.label  "Standard">
+
+<!ENTITY fzami.pref.prayer.tab.methods  "Calculation Methods">
+<!ENTITY fzami.pref.prayer.tab.custom  "Custom">
+
+<!ENTITY fzami.pref.prayer.method.mwl.label   "Muslim World League">
+<!ENTITY fzami.pref.prayer.method.egas.label  "Egyptian General Authority of Survey">
+<!ENTITY fzami.pref.prayer.method.uis.label   "University of Islamic Sciences, Karachi">
+<!ENTITY fzami.pref.prayer.method.uq.label    "Umm al-Qura">
+<!ENTITY fzami.pref.prayer.method.na.label    "North America">
+<!ENTITY fzami.pref.prayer.method.custom.label  "Custom..">
+
+<!ENTITY fzami.pref.prayer.fajrangle.label    "Fajr Twilight Angle">
+<!ENTITY fzami.pref.prayer.zuhrdelay.label    "Zuhr Delay (minutes)">
+<!ENTITY fzami.pref.prayer.maghribdelay.label    "Maghrib Delay (minutes)">
+<!ENTITY fzami.pref.prayer.ishaangle.label    "Isha Twilight Angle">
+
+
+<!ENTITY fzami.pref.permission.disclosure     "Prayer times calculated by">
+<!ENTITY fzami.pref.source.url     "http://www.islamicfinder.org">
+<!ENTITY fzami.pref.source.name     "Islamicfinder.org">
+
+
+<!ENTITY fzami.pref.location.country.afghanistan    "Afghanistan">
+<!ENTITY fzami.pref.location.country.albania    "Albania">
+<!ENTITY fzami.pref.location.country.algeria    "Algeria">
+<!ENTITY fzami.pref.location.country.andorra    "Andorra">
+<!ENTITY fzami.pref.location.country.angola    "Angola">
+
+<!ENTITY fzami.pref.location.country.anguilla    "Anguilla">
+<!ENTITY fzami.pref.location.country.antarctica    "Antarctica">
+<!ENTITY fzami.pref.location.country.antigua_barbuda    "Antigua Barbuda">
+<!ENTITY fzami.pref.location.country.argentina    "Argentina">
+<!ENTITY fzami.pref.location.country.armenia    "Armenia">
+<!ENTITY fzami.pref.location.country.aruba    "Aruba">
+<!ENTITY fzami.pref.location.country.ashmore_cartier_islands    "Ashmore Cartier Islands">
+<!ENTITY fzami.pref.location.country.australia    "Australia">
+<!ENTITY fzami.pref.location.country.austria    "Austria">
+
+<!ENTITY fzami.pref.location.country.azerbaijan    "Azerbaijan">
+<!ENTITY fzami.pref.location.country.bahamas    "Bahamas">
+<!ENTITY fzami.pref.location.country.bahrain    "Bahrain">
+<!ENTITY fzami.pref.location.country.bangladesh    "Bangladesh">
+<!ENTITY fzami.pref.location.country.barbados    "Barbados">
+<!ENTITY fzami.pref.location.country.bassas_de_india    "Bassas De India">
+<!ENTITY fzami.pref.location.country.belarus    "Belarus">
+<!ENTITY fzami.pref.location.country.belgium    "Belgium">
+<!ENTITY fzami.pref.location.country.belize    "Belize">
+
+<!ENTITY fzami.pref.location.country.benin    "Benin">
+<!ENTITY fzami.pref.location.country.bermuda    "Bermuda">
+<!ENTITY fzami.pref.location.country.bhutan    "Bhutan">
+<!ENTITY fzami.pref.location.country.bolivia    "Bolivia">
+<!ENTITY fzami.pref.location.country.bosnia_herzegovina    "Bosnia Herzegovina">
+<!ENTITY fzami.pref.location.country.botswana    "Botswana">
+<!ENTITY fzami.pref.location.country.bouvet_island    "Bouvet Island">
+<!ENTITY fzami.pref.location.country.brazil    "Brazil">
+<!ENTITY fzami.pref.location.country.british_indian_ocean_territory    "British Indian Ocean Territory">
+
+<!ENTITY fzami.pref.location.country.british_virgin_islands    "British Virgin Islands">
+<!ENTITY fzami.pref.location.country.brunei_darussalam    "Brunei Darussalam">
+<!ENTITY fzami.pref.location.country.bulgaria    "Bulgaria">
+<!ENTITY fzami.pref.location.country.burkina_faso    "Burkina Faso">
+<!ENTITY fzami.pref.location.country.burma    "burma">
+<!ENTITY fzami.pref.location.country.burundi    "Burundi">
+<!ENTITY fzami.pref.location.country.cambodia    "Cambodia">
+<!ENTITY fzami.pref.location.country.cameroon    "Cameroon">
+<!ENTITY fzami.pref.location.country.canada    "Canada">
+
+<!ENTITY fzami.pref.location.country.cape_verde    "Cape Verde">
+<!ENTITY fzami.pref.location.country.cayman_islands    "Cayman_Islands">
+<!ENTITY fzami.pref.location.country.central_african_republic    "Central African Republic">
+<!ENTITY fzami.pref.location.country.chad    "Chad">
+<!ENTITY fzami.pref.location.country.chile    "Chile">
+<!ENTITY fzami.pref.location.country.china    "China">
+<!ENTITY fzami.pref.location.country.christmas_island    "Christmas Island">
+<!ENTITY fzami.pref.location.country.clipperton_island    "Clipperton Island">
+<!ENTITY fzami.pref.location.country.cocos_islands    "Cocos Islands">
+
+<!ENTITY fzami.pref.location.country.colombia    "Colombia">
+<!ENTITY fzami.pref.location.country.comoros    "Comoros">
+<!ENTITY fzami.pref.location.country.congo    "Congo">
+<!ENTITY fzami.pref.location.country.congo_democratic_republic    "Congo Democratic Republic">
+<!ENTITY fzami.pref.location.country.cook_islands    "Cook Islands">
+<!ENTITY fzami.pref.location.country.coral_sea_islands    "Coral Sea Islands">
+<!ENTITY fzami.pref.location.country.costa_rica    "Costa Rica">
+<!ENTITY fzami.pref.location.country.cote_dlvoire    "Cote Dlvoire">
+<!ENTITY fzami.pref.location.country.croatia    "Croatia">
+
+<!ENTITY fzami.pref.location.country.cuba    "Cuba">
+<!ENTITY fzami.pref.location.country.cyprus    "Cyprus">
+<!ENTITY fzami.pref.location.country.czech_republic    "Czech_republic">
+<!ENTITY fzami.pref.location.country.denmark    "Denmark">
+<!ENTITY fzami.pref.location.country.djibouti    "Djibouti">
+<!ENTITY fzami.pref.location.country.dominica    "Dominica">
+<!ENTITY fzami.pref.location.country.dominican_republic    "Dominican Republic">
+<!ENTITY fzami.pref.location.country.east_timor    "East Timor">
+<!ENTITY fzami.pref.location.country.ecuador    "Ecuador">
+
+<!ENTITY fzami.pref.location.country.egypt    "Egypt">
+<!ENTITY fzami.pref.location.country.el_salvador    "El Salvador">
+<!ENTITY fzami.pref.location.country.equatorial_guinea    "Equatorial Guinea">
+<!ENTITY fzami.pref.location.country.eritrea    "Eritrea">
+<!ENTITY fzami.pref.location.country.estonia    "Estonia">
+<!ENTITY fzami.pref.location.country.ethiopia    "Ethiopia">
+<!ENTITY fzami.pref.location.country.europa_island    "Europa Island">
+<!ENTITY fzami.pref.location.country.falkland_islands_malvinas    "Falkland Islands Malvinas">
+<!ENTITY fzami.pref.location.country.faroe_islands    "Faroe Islands">
+
+<!ENTITY fzami.pref.location.country.fiji    "Fiji">
+<!ENTITY fzami.pref.location.country.finland    "Finland">
+<!ENTITY fzami.pref.location.country.france    "France">
+<!ENTITY fzami.pref.location.country.french_guiana    "French Guiana">
+<!ENTITY fzami.pref.location.country.french_polynesia    "French Polynesia">
+<!ENTITY fzami.pref.location.country.french_southern_antarctic_lands    "French S. Antarctic Lands">
+<!ENTITY fzami.pref.location.country.gabon    "Gabon">
+<!ENTITY fzami.pref.location.country.gambia    "Gambia">
+<!ENTITY fzami.pref.location.country.georgia    "Georgia">
+
+<!ENTITY fzami.pref.location.country.germany    "Germany">
+<!ENTITY fzami.pref.location.country.ghana    "Ghana">
+<!ENTITY fzami.pref.location.country.gibraltar    "Gibraltar">
+<!ENTITY fzami.pref.location.country.glorioso_islands    "Glorioso Islands">
+<!ENTITY fzami.pref.location.country.greece    "Greece">
+<!ENTITY fzami.pref.location.country.greenland    "Greenland">
+<!ENTITY fzami.pref.location.country.grenada    "Grenada">
+<!ENTITY fzami.pref.location.country.guadeloupe    "Guadeloupe">
+<!ENTITY fzami.pref.location.country.guatemala    "Guatemala">
+
+<!ENTITY fzami.pref.location.country.guernsey    "guernsey">
+<!ENTITY fzami.pref.location.country.guinea    "Guinea">
+<!ENTITY fzami.pref.location.country.guinea_bissau    "Guinea Bissau">
+<!ENTITY fzami.pref.location.country.guyana    "Guyana">
+<!ENTITY fzami.pref.location.country.guam    "Guam">
+<!ENTITY fzami.pref.location.country.haiti    "Haiti">
+<!ENTITY fzami.pref.location.country.heard_island_mcdonald_islands    "Heard Is. Mcdonald Is.">
+<!ENTITY fzami.pref.location.country.honduras    "Honduras">
+<!ENTITY fzami.pref.location.country.hong_kong    "Hong Kong">
+
+<!ENTITY fzami.pref.location.country.hungary    "Hungary">
+<!ENTITY fzami.pref.location.country.iceland    "Iceland">
+<!ENTITY fzami.pref.location.country.india    "India">
+<!ENTITY fzami.pref.location.country.indonesia    "Indonesia">
+<!ENTITY fzami.pref.location.country.iran    "Iran">
+<!ENTITY fzami.pref.location.country.iraq    "Iraq">
+<!ENTITY fzami.pref.location.country.ireland    "Ireland">
+<!ENTITY fzami.pref.location.country.isle_of_man    "Isle Of Man">
+<!ENTITY fzami.pref.location.country.italy    "Italy">
+
+<!ENTITY fzami.pref.location.country.jamaica    "Jamaica">
+<!ENTITY fzami.pref.location.country.jan_mayen    "Jan Mayen">
+<!ENTITY fzami.pref.location.country.japan    "Japan">
+<!ENTITY fzami.pref.location.country.jersey    "jersey">
+<!ENTITY fzami.pref.location.country.jordan    "Jordan">
+<!ENTITY fzami.pref.location.country.juan_de_nova_island    "Juan De Nova Island">
+<!ENTITY fzami.pref.location.country.kazakstan    "Kazakstan">
+<!ENTITY fzami.pref.location.country.kenya    "Kenya">
+<!ENTITY fzami.pref.location.country.kiribati    "Kiribati">
+
+<!ENTITY fzami.pref.location.country.kuwait    "Kuwait">
+<!ENTITY fzami.pref.location.country.kyrgyzstan    "Kyrgyzstan">
+<!ENTITY fzami.pref.location.country.lao_peoples_democratic_republic    "Lao Peoples Dem. Rep.">
+<!ENTITY fzami.pref.location.country.latvia    "Latvia">
+<!ENTITY fzami.pref.location.country.lebanon    "Lebanon">
+<!ENTITY fzami.pref.location.country.lesotho    "Lesotho">
+<!ENTITY fzami.pref.location.country.liberia    "Liberia">
+<!ENTITY fzami.pref.location.country.libya    "Libya">
+<!ENTITY fzami.pref.location.country.liechtenstein    "Liechtenstein">
+
+<!ENTITY fzami.pref.location.country.lithuania    "Lithuania">
+<!ENTITY fzami.pref.location.country.luxembourg    "Luxembourg">
+<!ENTITY fzami.pref.location.country.macau    "Macau">
+<!ENTITY fzami.pref.location.country.macedonia    "Macedonia">
+<!ENTITY fzami.pref.location.country.madagascar    "Madagascar">
+<!ENTITY fzami.pref.location.country.malawi    "Malawi">
+<!ENTITY fzami.pref.location.country.malaysia    "Malaysia">
+<!ENTITY fzami.pref.location.country.maldives    "Maldives">
+<!ENTITY fzami.pref.location.country.mali    "Mali">
+
+<!ENTITY fzami.pref.location.country.malta    "Malta">
+<!ENTITY fzami.pref.location.country.marshall_islands    "Marshall Islands">
+<!ENTITY fzami.pref.location.country.martinique    "Martinique">
+<!ENTITY fzami.pref.location.country.mauritania    "Mauritania">
+<!ENTITY fzami.pref.location.country.mauritius    "Mauritius">
+<!ENTITY fzami.pref.location.country.mayotte    "Mayotte">
+<!ENTITY fzami.pref.location.country.mexico    "Mexico">
+<!ENTITY fzami.pref.location.country.micronesia    "Micronesia">
+<!ENTITY fzami.pref.location.country.moldova    "Moldova">
+
+<!ENTITY fzami.pref.location.country.monaco    "Monaco">
+<!ENTITY fzami.pref.location.country.mongolia    "Mongolia">
+<!ENTITY fzami.pref.location.country.montserrat    "Montserrat">
+<!ENTITY fzami.pref.location.country.morocco    "Morocco">
+<!ENTITY fzami.pref.location.country.mozambique    "Mozambique">
+<!ENTITY fzami.pref.location.country.namibia    "Namibia">
+<!ENTITY fzami.pref.location.country.nauru    "Nauru">
+<!ENTITY fzami.pref.location.country.nepal    "Nepal">
+<!ENTITY fzami.pref.location.country.netherlands    "Netherlands">
+
+<!ENTITY fzami.pref.location.country.netherlands_antilles    "Netherlands Antilles">
+<!ENTITY fzami.pref.location.country.new_caledonia    "New Caledonia">
+<!ENTITY fzami.pref.location.country.new_zealand    "New Zealand">
+<!ENTITY fzami.pref.location.country.nicaragua    "Nicaragua">
+<!ENTITY fzami.pref.location.country.niger    "Niger">
+<!ENTITY fzami.pref.location.country.nigeria    "Nigeria">
+<!ENTITY fzami.pref.location.country.niue    "Niue">
+<!ENTITY fzami.pref.location.country.no_mans_land    "No Mans Land">
+<!ENTITY fzami.pref.location.country.norfolk_island    "Norfolk Island">
+
+<!ENTITY fzami.pref.location.country.north_korea    "North Korea">
+<!ENTITY fzami.pref.location.country.norway    "Norway">
+<!ENTITY fzami.pref.location.country.oceans    "Oceans">
+<!ENTITY fzami.pref.location.country.oman    "Oman">
+<!ENTITY fzami.pref.location.country.pakistan    "Pakistan">
+<!ENTITY fzami.pref.location.country.palau    "Palau">
+<!ENTITY fzami.pref.location.country.palestine    "Palestine">
+<!ENTITY fzami.pref.location.country.panama    "Panama">
+<!ENTITY fzami.pref.location.country.papua_new_guinea    "Papua New Guinea">
+
+<!ENTITY fzami.pref.location.country.paracel_islands    "Paracel Islands">
+<!ENTITY fzami.pref.location.country.paraguay    "Paraguay">
+<!ENTITY fzami.pref.location.country.peru    "Peru">
+<!ENTITY fzami.pref.location.country.philippines    "Philippines">
+<!ENTITY fzami.pref.location.country.pitcairn_islands    "Pitcairn Islands">
+<!ENTITY fzami.pref.location.country.poland    "Poland">
+<!ENTITY fzami.pref.location.country.portugal    "Portugal">
+<!ENTITY fzami.pref.location.country.puerto_rico    "Puerto Rico">
+<!ENTITY fzami.pref.location.country.qatar    "Qatar">
+
+<!ENTITY fzami.pref.location.country.reunion    "Reunion">
+<!ENTITY fzami.pref.location.country.romania    "Romania">
+<!ENTITY fzami.pref.location.country.russia    "Russia">
+<!ENTITY fzami.pref.location.country.rwanda    "Rwanda">
+<!ENTITY fzami.pref.location.country.saint_helena    "Saint Helena">
+<!ENTITY fzami.pref.location.country.saint_kitts_nevis    "Saint Kitts Nevis">
+<!ENTITY fzami.pref.location.country.saint_lucia    "Saint Lucia">
+<!ENTITY fzami.pref.location.country.saint_pierre_miquelon    "Saint Pierre Miquelon">
+<!ENTITY fzami.pref.location.country.saint_vincent_grenadines    "Saint Vincent Grenadines">
+
+<!ENTITY fzami.pref.location.country.samoa    "Samoa">
+<!ENTITY fzami.pref.location.country.san_marino    "San Marino">
+<!ENTITY fzami.pref.location.country.sao_tome_and_principe    "Sao Tome and Principe">
+<!ENTITY fzami.pref.location.country.saudi_arabia    "Saudi Arabia">
+<!ENTITY fzami.pref.location.country.senegal    "Senegal">
+<!ENTITY fzami.pref.location.country.seychelles    "Seychelles">
+<!ENTITY fzami.pref.location.country.sierra_leone    "Sierra Leone">
+<!ENTITY fzami.pref.location.country.singapore    "Singapore">
+<!ENTITY fzami.pref.location.country.slovakia    "Slovakia">
+
+<!ENTITY fzami.pref.location.country.slovenia    "Slovenia">
+<!ENTITY fzami.pref.location.country.solomon_islands    "Solomon_islands">
+<!ENTITY fzami.pref.location.country.somalia    "Somalia">
+<!ENTITY fzami.pref.location.country.south_africa    "South Africa">
+<!ENTITY fzami.pref.location.country.south_georgia_the_south_sandwitch_islands    "S. Georgia S. Sandwitch Is.">
+<!ENTITY fzami.pref.location.country.south_korea    "South Korea">
+<!ENTITY fzami.pref.location.country.spain    "Spain">
+<!ENTITY fzami.pref.location.country.spratly_islands    "Spratly Islands">
+<!ENTITY fzami.pref.location.country.sri_lanka    "Sri Lanka">
+
+<!ENTITY fzami.pref.location.country.sudan    "Sudan">
+<!ENTITY fzami.pref.location.country.suriname    "Suriname">
+<!ENTITY fzami.pref.location.country.svalbard_and_jan_mayen    "Svalbard &amp; Jan Mayen">
+<!ENTITY fzami.pref.location.country.swaziland    "Swaziland">
+<!ENTITY fzami.pref.location.country.sweden    "Sweden">
+<!ENTITY fzami.pref.location.country.switzerland    "Switzerland">
+<!ENTITY fzami.pref.location.country.syria    "Syria">
+<!ENTITY fzami.pref.location.country.taiwan    "Taiwan">
+
+<!ENTITY fzami.pref.location.country.tajikistan    "Tajikistan">
+<!ENTITY fzami.pref.location.country.tanzania    "Tanzania">
+<!ENTITY fzami.pref.location.country.thailand    "Thailand">
+<!ENTITY fzami.pref.location.country.togo    "Togo">
+<!ENTITY fzami.pref.location.country.tokelau    "Tokelau">
+<!ENTITY fzami.pref.location.country.tonga    "Tonga">
+<!ENTITY fzami.pref.location.country.trinidad_tobago    "Trinidad Tobago">
+<!ENTITY fzami.pref.location.country.tromelin_island    "Tromelin Island">
+<!ENTITY fzami.pref.location.country.tunisia    "Tunisia">
+
+<!ENTITY fzami.pref.location.country.turkey    "Turkey">
+<!ENTITY fzami.pref.location.country.turkmenistan    "Turkmenistan">
+<!ENTITY fzami.pref.location.country.turks_caicos_islands    "Turks Caicos Islands">
+<!ENTITY fzami.pref.location.country.tuvalu    "Tuvalu">
+<!ENTITY fzami.pref.location.country.uganda    "Uganda">
+<!ENTITY fzami.pref.location.country.ukraine    "Ukraine">
+<!ENTITY fzami.pref.location.country.under_sea_features    "Under Sea Features">
+<!ENTITY fzami.pref.location.country.united_arab_emirates    "United Arab Emirates">
+<!ENTITY fzami.pref.location.country.united_kingdom    "United Kingdom">
+<!ENTITY fzami.pref.location.country.USA    "United States of America">
+
+<!ENTITY fzami.pref.location.country.uruguay    "Uruguay">
+<!ENTITY fzami.pref.location.country.uzbekistan    "Uzbekistan">
+<!ENTITY fzami.pref.location.country.vanuatu    "Vanuatu">
+<!ENTITY fzami.pref.location.country.vatican_city    "Vatican City">
+<!ENTITY fzami.pref.location.country.venezuela    "Venezuela">
+<!ENTITY fzami.pref.location.country.viet_nam    "Viet Nam">
+<!ENTITY fzami.pref.location.country.wallis_futuna    "Wallis Futuna">
+<!ENTITY fzami.pref.location.country.yemen    "Yemen">
+
+<!ENTITY fzami.pref.location.country.yugoslavia    "Yugoslavia">
+<!ENTITY fzami.pref.location.country.zambia    "Zambia">
+<!ENTITY fzami.pref.location.country.zimbabwe    "Zimbabwe">
