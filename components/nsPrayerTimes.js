@@ -139,7 +139,7 @@ PrayerTimeService.prototype = {
       } else {
       	try {
 	        var prayertimes = this.parsePrayerTimes(aResponse);
-	        var prayertimeString = "{fajr:'"+prayertimes["fajr"]+"', shuruk:'"+prayertimes["shuruk"]+"', zuhr:'"+prayertimes["zuhr"]+"', asr:'"+prayertimes["asr"]+"', maghrib:'"+prayertimes["maghrib"]+"', isha:'"+prayertimes["isha"]+"'}";
+	        var prayertimeString = '{"fajr":"'+prayertimes["fajr"]+'", "shuruk":"'+prayertimes["shuruk"]+'", "zuhr":"'+prayertimes["zuhr"]+'", "asr":"'+prayertimes["asr"]+'", "maghrib":"'+prayertimes["maghrib"]+'", "isha":"'+prayertimes["isha"]+'"}';
 
 		  	if (this.preferences && 
 				this.preferences.getBoolPref("extensions.fzami.debug")) {
