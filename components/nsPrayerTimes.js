@@ -2,10 +2,6 @@ const Cu = Components.utils;
 
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 
-String.prototype.trim = function() {
-  return this.replace( /^\s+/g, "" ).replace( /\s+$/g, "" );
-}
-
 function PrayerTimeService() {
 	this.wrappedJSObject = this;
 }
@@ -184,6 +180,11 @@ PrayerTimeService.prototype = {
         						.openWindow(null, "chrome://fzami/content/options.xul", "fzami-options", "chrome,centerscreen", null);
   },
   
+  trim: function(str) {
+		return str.replace( /^\s+/g, "" ).replace( /\s+$/g, "" );
+  },
+  
+  
   parsePrayerTimes: function(response) {
 	if (response.indexOf("www.islamicfinder.org") == -1)
 	{
@@ -206,17 +207,17 @@ PrayerTimeService.prototype = {
 
 	response = response.substring(response.indexOf("center\">")+8);
 	response = response.substring(response.indexOf("center\">")+8);
-	var fajr = this.newTime(response.substring(0, response.indexOf("</td")).trim());
+	var fajr = this.newTime(this.trim(response.substring(0, response.indexOf("</td"))));
 	response = response.substring(response.indexOf("center\">")+8);
-	var shuruk = this.newTime(response.substring(0, response.indexOf("</td")).trim());
+	var shuruk = this.newTime(this.trim(response.substring(0, response.indexOf("</td"))));
 	response = response.substring(response.indexOf("center\">")+8);
-	var zuhr = this.newTime(response.substring(0, response.indexOf("</td")).trim());
+	var zuhr = this.newTime(this.trim(response.substring(0, response.indexOf("</td"))));
 	response = response.substring(response.indexOf("center\">")+8);
-	var asr = this.newTime(response.substring(0, response.indexOf("</td")).trim());
+	var asr = this.newTime(this.trim(response.substring(0, response.indexOf("</td"))));
 	response = response.substring(response.indexOf("center\">")+8);
-	var maghrib = this.newTime(response.substring(0, response.indexOf("</td")).trim());
+	var maghrib = this.newTime(this.trim(response.substring(0, response.indexOf("</td"))));
 	response = response.substring(response.indexOf("center\">")+8);
-	var isha = this.newTime(response.substring(0, response.indexOf("</td")).trim());
+	var isha = this.newTime(this.trim(response.substring(0, response.indexOf("</td"))));
 
 	var inPM = zuhr.hour < fajr.hour;
         if (inPM) zuhr.hour += 12; else inPM = asr.hour < zuhr.hour;

@@ -238,7 +238,7 @@ FzamiService.prototype = {
   
   setPrayerTimes: function(prayerTimes) {
   	if (prayerTimes != null) {
-  		var times = eval("("+prayerTimes+")");
+  		var times = JSON.parse(prayerTimes);
 	  	this.prayertimes = new Array;
 	  	this.prayertimes['fajr'] = this.newTime(times.fajr);
 	  	this.prayertimes['shuruk'] = this.newTime(times.shuruk);
