@@ -226,12 +226,12 @@ PrayerTimeService.prototype = {
         if (inPM) isha.hour += 12;
 
 	var prayertimes = new Array;
-	prayertimes['fajr'] = fajr.toString(true);
-	prayertimes['shuruk'] = shuruk.toString(true);
-	prayertimes['zuhr'] = zuhr.toString(true);
-	prayertimes['asr'] = asr.toString(true);
-	prayertimes['maghrib'] = maghrib.toString(true);
-	prayertimes['isha'] = isha.toString(true);
+	prayertimes['fajr'] = fajr.formatTime(true);
+	prayertimes['shuruk'] = shuruk.formatTime(true);
+	prayertimes['zuhr'] = zuhr.formatTime(true);
+	prayertimes['asr'] = asr.formatTime(true);
+	prayertimes['maghrib'] = maghrib.formatTime(true);
+	prayertimes['isha'] = isha.formatTime(true);
 
 	return prayertimes;
   },

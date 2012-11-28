@@ -243,7 +243,7 @@ FZami.prototype = {
 	prayerName.setAttribute("value", this.bundle.GetStringFromName("fzami.tooltip.prayertimes.fajr"));
 	row.appendChild(prayerName);
 	var prayerTime = document.createElement("label");
-	prayerTime.setAttribute("value", prayerTimes["fajr"].toString(militaryTime));
+	prayerTime.setAttribute("value", prayerTimes["fajr"].formatTime(militaryTime));
 	row.appendChild(prayerTime);
 
 	row = document.createElement("row");
@@ -253,7 +253,7 @@ FZami.prototype = {
 	prayerName.setAttribute("value", this.bundle.GetStringFromName("fzami.tooltip.prayertimes.shuruk"));
 	row.appendChild(prayerName);
 	prayerTime = document.createElement("label");
-	prayerTime.setAttribute("value", prayerTimes["shuruk"].toString(militaryTime));
+	prayerTime.setAttribute("value", prayerTimes["shuruk"].formatTime(militaryTime));
 	row.appendChild(prayerTime);
 
 	row = document.createElement("row");
@@ -263,7 +263,7 @@ FZami.prototype = {
 	prayerName.setAttribute("value", this.bundle.GetStringFromName("fzami.tooltip.prayertimes.zuhr"));
 	row.appendChild(prayerName);
 	prayerTime = document.createElement("label");
-	prayerTime.setAttribute("value", prayerTimes["zuhr"].toString(militaryTime));
+	prayerTime.setAttribute("value", prayerTimes["zuhr"].formatTime(militaryTime));
 	row.appendChild(prayerTime);
 
 	row = document.createElement("row");
@@ -273,7 +273,7 @@ FZami.prototype = {
 	prayerName.setAttribute("value", this.bundle.GetStringFromName("fzami.tooltip.prayertimes.asr"));
 	row.appendChild(prayerName);
 	prayerTime = document.createElement("label");
-	prayerTime.setAttribute("value", prayerTimes["asr"].toString(militaryTime));
+	prayerTime.setAttribute("value", prayerTimes["asr"].formatTime(militaryTime));
 	row.appendChild(prayerTime);
 
 	row = document.createElement("row");
@@ -283,7 +283,7 @@ FZami.prototype = {
 	prayerName.setAttribute("value", this.bundle.GetStringFromName("fzami.tooltip.prayertimes.maghrib"));
 	row.appendChild(prayerName);
 	prayerTime = document.createElement("label");
-	prayerTime.setAttribute("value", prayerTimes["maghrib"].toString(militaryTime));
+	prayerTime.setAttribute("value", prayerTimes["maghrib"].formatTime(militaryTime));
 	row.appendChild(prayerTime);
 
 	row = document.createElement("row");
@@ -293,7 +293,7 @@ FZami.prototype = {
 	prayerName.setAttribute("value", this.bundle.GetStringFromName("fzami.tooltip.prayertimes.isha"));
 	row.appendChild(prayerName);
 	prayerTime = document.createElement("label");
-	prayerTime.setAttribute("value", prayerTimes["isha"].toString(militaryTime));
+	prayerTime.setAttribute("value", prayerTimes["isha"].formatTime(militaryTime));
 	row.appendChild(prayerTime);
   },
 
@@ -301,19 +301,19 @@ FZami.prototype = {
 	if (prayerTimes == null) return;
 	var militaryTime = this.preferences.getBoolPref("extensions.fzami.militaryTime");
 
-	document.getElementById("fzami-fajr-time").value = prayerTimes['fajr'].toString(militaryTime)+" - "+prayerTimes['shuruk'].toString(militaryTime);
-	document.getElementById("fzami-zuhr-time").value = prayerTimes['zuhr'].toString(militaryTime);
-	document.getElementById("fzami-asr-time").value = prayerTimes['asr'].toString(militaryTime);
-	document.getElementById("fzami-maghrib-time").value = prayerTimes['maghrib'].toString(militaryTime);
-	document.getElementById("fzami-isha-time").value = prayerTimes['isha'].toString(militaryTime);
+	document.getElementById("fzami-fajr-time").value = prayerTimes['fajr'].formatTime(militaryTime)+" - "+prayerTimes['shuruk'].formatTime(militaryTime);
+	document.getElementById("fzami-zuhr-time").value = prayerTimes['zuhr'].formatTime(militaryTime);
+	document.getElementById("fzami-asr-time").value = prayerTimes['asr'].formatTime(militaryTime);
+	document.getElementById("fzami-maghrib-time").value = prayerTimes['maghrib'].formatTime(militaryTime);
+	document.getElementById("fzami-isha-time").value = prayerTimes['isha'].formatTime(militaryTime);
 
 	if (currentPrayer != null && currentPrayer != 'shuruk')
 	{
 		document.getElementById("fzami-current-prayer-label").value = currentPrayer+":";
-		document.getElementById("fzami-current-prayer-time").value = prayerTimes[currentPrayer].toString(militaryTime)+" - "+nextPrayerTime.toString(militaryTime);
+		document.getElementById("fzami-current-prayer-time").value = prayerTimes[currentPrayer].formatTime(militaryTime)+" - "+nextPrayerTime.formatTime(militaryTime);
 	} else if (currentPrayer == 'shuruk') {
 		document.getElementById("fzami-current-prayer-label").value = "";
-		document.getElementById("fzami-current-prayer-time").value = this.bundle.formatStringFromName("fzami.tooltip.prayertimes.zuhr-start", [prayerTimes['zuhr'].toString(militaryTime)], 1);
+		document.getElementById("fzami-current-prayer-time").value = this.bundle.formatStringFromName("fzami.tooltip.prayertimes.zuhr-start", [prayerTimes['zuhr'].formatTime(militaryTime)], 1);
 	} else {
 		document.getElementById("fzami-current-prayer-label").value = "";
 		document.getElementById("fzami-current-prayer-time").value = this.bundle.GetStringFromName("fzami.tooltip.prayertimes.no-prayer-time");

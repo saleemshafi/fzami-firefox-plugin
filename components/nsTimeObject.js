@@ -35,7 +35,7 @@ Time.prototype = {
     return !this.before(date);
   },
 
-  toString: function(militaryTime) 
+  formatTime: function(militaryTime) 
   {
     if (isNaN(this.hour) || isNaN(this.minute)) return "---";
     var time = "";
