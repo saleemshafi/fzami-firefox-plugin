@@ -189,7 +189,7 @@ FzamiService.prototype = {
 				gSound.beep();	
 			} else {
 				var file = Components.classes["@mozilla.org/file/local;1"]
-						.createInstance(Components.interfaces.nsILocalFile);
+						.createInstance(Components.interfaces.nsIFile);
 				file.initWithPath( filename );						
 				var ios = Components.classes['@mozilla.org/network/io-service;1'].getService(Components.interfaces.nsIIOService);
 				var fileURI = ios.newFileURI(file);				

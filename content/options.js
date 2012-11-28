@@ -122,7 +122,12 @@ function reloadCities()
     cityList.selectedIndex = -1;
     if (country != "" && citySearch.value != "")
     {
-    	reloadCitiesTimeout = setTimeout( loadCities(country, citySearch.value), 500);
+    	reloadCitiesTimeout = setTimeout( function() { 
+			Components.classes["@mozdev.org/fzami/ptservice;1"]
+					  .getService()
+					  .wrappedJSObject
+					  .loadCitiesFor(country, citySearch.value, setCities)
+		}, 500);
     } else {
 	    var infoElement = document.createElement("menuitem");
 	    infoElement.setAttribute("value", "");
