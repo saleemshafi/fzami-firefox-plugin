@@ -96,6 +96,16 @@ function clearCities()
 }
 
 var reloadCitiesTimeout = null;
+
+function loadCities(country, citySearch) {
+	return function() {
+			Components.classes["@mozdev.org/fzami/ptservice;1"]
+					  .getService()
+					  .wrappedJSObject
+					  .loadCitiesFor(country, citySearch, setCities)
+		}
+}
+
 function reloadCities()
 {
 	if (reloadCitiesTimeout != null) {
@@ -112,8 +122,7 @@ function reloadCities()
     cityList.selectedIndex = -1;
     if (country != "" && citySearch.value != "")
     {
-    	reloadCitiesTimeout = setTimeout("Components.classes[\"@mozdev.org/fzami/ptservice;1\"].getService().wrappedJSObject.loadCitiesFor('"+country+"', '"+citySearch.value+"', setCities)", 500);
-//    	Components.classes["@mozdev.org/fzami/ptservice;1"].getService().wrappedJSObject.loadCitiesFor(country, citySearch.value, setCities);
+    	reloadCitiesTimeout = setTimeout( loadCities(country, citySearch.value), 500);
     } else {
 	    var infoElement = document.createElement("menuitem");
 	    infoElement.setAttribute("value", "");
